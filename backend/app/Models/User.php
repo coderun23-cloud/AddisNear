@@ -47,4 +47,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+       public function isOwner()
+    {
+        return $this->role === 'owner';
+    }
+        public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
 }
